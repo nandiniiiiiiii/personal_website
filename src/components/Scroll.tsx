@@ -21,7 +21,7 @@ export function HeroScrollDemo() {
                   ><u>GitHub</u></LinkPreview>...<br/>
                 </Highlight>
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-              Let's Collaborate
+              Let&#39;s Collaborate
               </span>
             </h1>
           </>

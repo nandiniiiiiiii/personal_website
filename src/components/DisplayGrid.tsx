@@ -25,7 +25,7 @@ export function BentoGridThirdDemo() {
         className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-auto"
       >
       <div className="text-7xl pb-10 font-bold">
-        What's {" "}
+        What&#39;s {" "}
         <FlipWords words={words} /> <br />
       </div>
 
@@ -279,7 +279,7 @@ const SkeletonFive = () => {
           className="rounded-full h-10 w-10"
         />
         <p className="text-xs text-neutral-500">
-          Taking on Harkirat Singh's cohort 3.0 was really the best decision every.
+          Taking on Harkirat Singh&#39;s cohort 3.0 was really the best decision every.
         </p>
       </motion.div>
       <motion.div

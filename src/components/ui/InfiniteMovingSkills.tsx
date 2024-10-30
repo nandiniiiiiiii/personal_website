@@ -7,7 +7,6 @@ export const InfiniteMovingSkills = ({
   skills,
   direction = "left",
   speed = "fast",
-  pauseOnHover = true,
   className,
 }: {
   skills: {
@@ -15,7 +14,6 @@ export const InfiniteMovingSkills = ({
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
-  pauseOnHover?: boolean;
   className?: string;
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
