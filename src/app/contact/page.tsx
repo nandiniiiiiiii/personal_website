@@ -2,8 +2,6 @@
 import ContactForm from '@/components/ContactForm';
 import HeroContact from '@/components/HeroContact';
 import { StickyScrollRevealDemo } from '@/components/SkillContact';
-import { ShootingStars } from '@/components/ui/shooting-stars';
-import { StarsBackground } from '@/components/ui/stars-background';
 import React from 'react';
 
 function contact() {

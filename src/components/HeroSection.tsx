@@ -31,7 +31,6 @@ export function BackgroundBoxesDemo() {
             NANDINI NEGI
           </h1>
           <TextGenerateEffect words={words} />
-            
         </div>
       </div>
   );

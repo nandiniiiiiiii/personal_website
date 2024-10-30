@@ -2,15 +2,8 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { ShootingStars } from './ui/shooting-stars';
 import { StarsBackground } from './ui/stars-background';
-import { SignupFormDemo } from './FormComponents';
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-import { cn } from "@/lib/utils";
-import {
-    IconBrandGithub,
-    IconBrandGoogle,
-    IconBrandOnlyfans,
-} from "@tabler/icons-react";
 import { Highlight } from "./ui/hero-highlight";
 
 

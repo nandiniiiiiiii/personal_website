@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
-import Image from "next/image";
 import { ShootingStars } from './ui/shooting-stars';
 import { StarsBackground } from './ui/stars-background';
-import { SignupFormDemo } from "./FormComponents";
 
 const content = [
   {

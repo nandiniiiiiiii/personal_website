@@ -38,6 +38,13 @@ const Footer: React.FC = () => {
           >
             <FaGithub size={30} />
           </a>
+          <a
+            href="mailto:your-email@example.com"  // Replace with your email
+            className="social-icon"
+            aria-label="Email"
+          >
+            <FaEnvelope size={30} />
+          </a>
         </div>
       </div>
 
