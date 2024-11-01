@@ -20,13 +20,13 @@ export const InfiniteMovingSkills = ({
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    addAnimations();
+    plusAnimations();
   }, []);
 
   const [start, setStart] = useState(false);
 
   // Duplicate skills for infinite scroll effect
-  function addAnimations() {
+  function plusAnimations() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 

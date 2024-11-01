@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { createNoise3D } from "simplex-noise";
 
 interface WavyBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -49,7 +49,7 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
     }
   };
 
-  const init = () => {
+  const init = useCallback(() => {
     canvas = canvasRef.current;
     if (canvas) {
       ctx = canvas.getContext("2d");
@@ -65,10 +65,10 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
           ctx!.filter = `blur(${blur}px)`;
         };
 
-        render();
+        render(); // Ensure render is called after initialization
       }
     }
-  };
+  }, [blur]);
 
   const waveColors = colors ?? [
     "#38bdf8",
@@ -96,7 +96,7 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
   };
 
   let animationId: number;
-  const render = () => {
+  const render = useCallback(() => {
     if (ctx) {
       ctx.fillStyle = backgroundFill || "black";
       ctx.globalAlpha = waveOpacity || 0.5;
@@ -104,14 +104,14 @@ export const WavyBackground: React.FC<WavyBackgroundProps> = ({
       drawWave(5);
       animationId = requestAnimationFrame(render);
     }
-  };
+  }, [backgroundFill, waveOpacity]); // Add relevant dependencies
 
   useEffect(() => {
     init();
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [init]); // Ensure animationId and init are included
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {

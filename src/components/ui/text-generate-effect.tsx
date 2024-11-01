@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -18,20 +18,22 @@ export const TextGenerateEffect = ({
   const wordsArray = words.split(" ");
 
   useEffect(() => {
-    animate2(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
+    if (scope.current) {
+      animate2(
+        "span",
+        {
+          opacity: 1,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration,
+          delay: stagger(0.2),
+        }
+      );
+    }
+  }, [animate2, duration, filter, scope]);
 
-  const renderWords = () => {
+  const renderWords = useCallback(() => {
     return (
       <motion.div ref={scope} className="flex flex-wrap gap-1">
         {wordsArray.map((word, idx) => (
@@ -47,7 +49,7 @@ export const TextGenerateEffect = ({
         ))}
       </motion.div>
     );
-  };
+  }, [wordsArray, filter, scope]);
 
   return (
     <div className={cn("font-bold", className)}>

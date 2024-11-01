@@ -50,18 +50,18 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     "var(--black)",
     "var(--neutral-900)",
   ];
-  const linearGradients1 = [
+  const Gradientsislinear = [
     "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
     "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
     "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients1[0]
+    Gradientsislinear[0]
   );
 
   useEffect(() => {
-    setBackgroundGradient(linearGradients1[activeCard % linearGradients1.length]);
+    setBackgroundGradient(Gradientsislinear[activeCard % Gradientsislinear.length]);
   }, [activeCard]);
 
   return (

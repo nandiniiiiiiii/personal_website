@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
@@ -26,6 +24,7 @@ export const TypewriterEffect = ({
 
   const [scope, animate2] = useAnimate();
   const isInView = useInView(scope);
+  
   useEffect(() => {
     if (isInView) {
       animate2(
@@ -42,7 +41,7 @@ export const TypewriterEffect = ({
         }
       );
     }
-  }, [isInView]);
+  }, [isInView, animate2]); // Add animate2 to the dependency array
 
   const renderWords = () => {
     return (
@@ -69,6 +68,7 @@ export const TypewriterEffect = ({
       </motion.div>
     );
   };
+
   return (
     <div
       className={cn(
@@ -98,6 +98,7 @@ export const TypewriterEffect = ({
   );
 };
 
+// TypewriterEffectSmooth remains unchanged
 export const TypewriterEffectSmooth = ({
   words,
   className,
@@ -117,6 +118,7 @@ export const TypewriterEffectSmooth = ({
       text: word.text.split(""),
     };
   });
+  
   const renderWords = () => {
     return (
       <div>
@@ -173,7 +175,6 @@ export const TypewriterEffectSmooth = ({
         }}
         transition={{
           duration: 0.8,
-
           repeat: Infinity,
           repeatType: "reverse",
         }}
