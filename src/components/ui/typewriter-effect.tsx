@@ -24,11 +24,11 @@ export const TypewriterEffect = ({
     };
   });
 
-  const [scope, animate] = useAnimate();
+  const [scope, animate2] = useAnimate();
   const isInView = useInView(scope);
   useEffect(() => {
     if (isInView) {
-      animate(
+      animate2(
         "span",
         {
           display: "inline-block",

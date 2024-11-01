@@ -14,11 +14,11 @@ export const TextGenerateEffect = ({
   filter?: boolean;
   duration?: number;
 }) => {
-  const [scope, animate] = useAnimate();
+  const [scope, animate2] = useAnimate();
   const wordsArray = words.split(" ");
 
   useEffect(() => {
-    animate(
+    animate2(
       "span",
       {
         opacity: 1,

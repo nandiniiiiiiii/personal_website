@@ -34,7 +34,6 @@ export const ContainerScroll: React.FC<ContainerScrollProps> = ({
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
@@ -47,8 +46,8 @@ export const ContainerScroll: React.FC<ContainerScrollProps> = ({
           perspective: "1000px",
         }}
       >
-        <Header translate={translate} titleComponent={titleComponent} />
-        <Card rotate={rotate} translate={translate} scale={scale}>
+        <Header titleComponent={titleComponent} />
+        <Card rotate={rotate} scale={scale}>
           {children}
         </Card>
       </div>
@@ -57,16 +56,12 @@ export const ContainerScroll: React.FC<ContainerScrollProps> = ({
 };
 
 interface HeaderProps {
-  translate: MotionValue<number>;
   titleComponent: string | ReactNode;
 }
 
-export const Header: React.FC<HeaderProps> = ({ translate, titleComponent }) => {
+export const Header: React.FC<HeaderProps> = ({ titleComponent }) => {
   return (
     <motion.div
-      style={{
-        translateY: translate,
-      }}
       className="div max-w-5xl mx-auto text-center"
     >
       {titleComponent}
@@ -77,14 +72,12 @@ export const Header: React.FC<HeaderProps> = ({ translate, titleComponent }) => 
 interface CardProps {
   rotate: MotionValue<number>;
   scale: MotionValue<number>;
-  translate: MotionValue<number>;
   children: ReactNode;
 }
 
 export const Card: React.FC<CardProps> = ({
   rotate,
   scale,
-  translate,
   children,
 }) => {
   return (
