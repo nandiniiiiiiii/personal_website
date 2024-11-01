@@ -173,19 +173,19 @@ const ShaderMaterial = ({
   });
 
   const plusUniforms = () => {
-    const preparedUniforms: { [key: string]: THREE.IUniform<number | THREE.Vector2 | THREE.Vector3 | number[]> } = {};
+    const preparedUniforms: { [key: string]: THREE.IUniform<any> } = {};
 
     for (const uniformName in uniforms) {
       const uniform = uniforms[uniformName];
       switch (uniform.type) {
         case "uniform1f":
-          preparedUniforms[uniformName] = { value: uniform.value as number };
+          preparedUniforms[uniformName] = { value: uniform.value };
           break;
         case "uniform3f":
           preparedUniforms[uniformName] = { value: new THREE.Vector3().fromArray(uniform.value as number[]) };
           break;
         case "uniform1fv":
-          preparedUniforms[uniformName] = { value: uniform.value as number[] };
+          preparedUniforms[uniformName] = { value: uniform.value };
           break;
         case "uniform3fv":
           preparedUniforms[uniformName] = {
