@@ -15,6 +15,13 @@ interface StickyScrollProps {
   contentClassName?: string;
 }
 
+// Background gradient array moved outside the component
+const Gradientsislinear = [
+  "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
+  "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
+  "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
+];
+
 export const StickyScroll: React.FC<StickyScrollProps> = ({
   content,
   contentClassName,
@@ -49,11 +56,6 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     "var(--black)",
     "var(--black)",
     "var(--neutral-900)",
-  ];
-  const Gradientsislinear = [
-    "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-    "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
-    "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
   ];
 
   const [backgroundGradient, setBackgroundGradient] = useState(
